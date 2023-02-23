@@ -1,0 +1,15 @@
+# .gitignore
+
+*~
+*.elc
+init.el
+auto-save-list
+history
+recentf
+savehist
+saveplace
+eshell
+elpa
+transient
+projectile-bookmarks.eld
+session*

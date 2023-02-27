@@ -5,6 +5,7 @@
 init.el
 auto-save-list
 history
+bookmarks
 recentf
 savehist
 saveplace

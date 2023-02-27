@@ -1,6 +1,7 @@
 (1
  (all-the-icons . [(20220929 2303) ((emacs (24 3))) "A library for inserting Developer icons" tar])
  (avy . [(20220910 1936) ((emacs (24 1)) (cl-lib (0 5))) "Jump to arbitrary positions in visible text and select text quickly." tar])
+ (bazel . [(20221105 2049) ((emacs (27 1))) "Bazel support for Emacs" tar])
  (bind-key . [(20230203 2004) ((emacs (24 3))) "A simple way to manage personal keybindings" tar])
  (compat . [(29 1 3 4) ((emacs (24 4)) (seq (2 3))) "Emacs Lisp Compatibility Library" tar])
  (counsel . [(20221015 936) ((emacs (24 5)) (ivy (0 13 4)) (swiper (0 13 4))) "Various completion functions using Ivy" tar])

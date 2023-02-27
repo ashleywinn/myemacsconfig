@@ -68,8 +68,9 @@
 (setq use-package-always-ensure t)
 ;; ---------------------------------------
 
-;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Elpa-Mirror : create local mirror elpa for using on firewalled machine
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Elpa-Mirror : create local mirror elpa for using on firewalled machine
+;;; run: elpamr-create-mirror-for-installed
 (use-package elpa-mirror
   :config
   (setq elpamr-default-output-directory "~/.emacs.d/local_elpa_mirror"))
@@ -501,7 +502,15 @@ background of code to whatever theme I'm using's background"
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Bazel Build
+(use-package bazel
+  :ensure t)
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Doom-Modeline
 
 (use-package all-the-icons
   :if (display-graphic-p))
@@ -546,7 +555,7 @@ background of code to whatever theme I'm using's background"
  '(org-export-with-sub-superscripts '{})
  '(org-image-actual-width nil)
  '(package-selected-packages
-   '(fira-code-mode elpa-mirror visual-fill-column org-bullets avy counsel-projectile projectile helpful ivy-rich counsel ivy fido which-key rainbow-delimiters use-package le-thesaurus smartrep plantuml-mode mc-extras diff-hl magit zenburn-theme smartscan pikchr-mode nov jinja2-mode htmlize multiple-cursors toml ess-view-data ess ox-gfm markdown-preview-mode markdown-mode rust-mode yaml-mode))
+   '(bazel fira-code-mode elpa-mirror visual-fill-column org-bullets avy counsel-projectile projectile helpful ivy-rich counsel ivy fido which-key rainbow-delimiters use-package le-thesaurus smartrep plantuml-mode mc-extras diff-hl magit zenburn-theme smartscan pikchr-mode nov jinja2-mode htmlize multiple-cursors toml ess-view-data ess ox-gfm markdown-preview-mode markdown-mode rust-mode yaml-mode))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map

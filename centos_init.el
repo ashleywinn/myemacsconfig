@@ -299,6 +299,23 @@
 
 (use-package zenburn-theme)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Markdown
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Bazel Build
+(use-package bazel
+  :ensure t)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Doom-Modeline
 (use-package all-the-icons
   :if (display-graphic-p))
 
@@ -318,7 +335,7 @@
  '(custom-enabled-themes '(zenburn))
  '(custom-safe-themes
    '("2dc03dfb67fbcb7d9c487522c29b7582da20766c9998aaad5e5b63b5c27eec3f" default))
- '(package-selected-packages '(all-the-icons use-package)))
+ '(package-selected-packages '(markdown-mode all-the-icons use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -191,6 +191,66 @@
 ;;   (switch-to-buffer (car (reverse (buffer-list))))
 ;; )
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Frame presets
+
+(setq frame-resize-pixelwise t)
+
+;; https://christiantietze.de/posts/2022/04/emacs-center-window-current-monitor-simplified/
+(defun ash/frame-recenter (&optional frame)
+  "Center FRAME on the screen.
+FRAME can be a frame name, a terminal name, or a frame.
+If FRAME is omitted or nil, use currently selected frame."
+  (interactive)
+  (unless (eq 'maximised (frame-parameter nil 'fullscreen))
+    (modify-frame-parameters
+     frame '((user-position . t) (top . 0.5) (left . 0.5)))))
+
+(defun set-frame-m2air ()
+  (interactive)
+  (set-frame-font (font-spec :size 13))
+  (set-frame-size (selected-frame) 1400 800 t)
+  (set-frame-position (selected-frame) 15 45)
+  )
+
+(defun set-frame-work-external ()
+  (interactive)
+  (set-frame-font (font-spec :size 15))
+  (set-frame-size (selected-frame) 1800 1200 t)
+  (ash/frame-recenter (selected-frame))
+  )
+
+(defun set-frame-home-external ()
+  (interactive)
+  (set-frame-font (font-spec :size 15))
+  (modify-frame-parameters
+   (selected-frame) '((user-position . t) (top + -1321) (left + -200)))
+  (set-frame-size (selected-frame) 1800 1200 t)
+  )
+
+(defun set-frame-95 ()
+  (interactive)
+  (modify-frame-parameters
+   (selected-frame) '((user-size . t) (width . 0.95) (height . 0.95)))
+  (ash/frame-recenter (selected-frame))
+  )
+
+(defun set-frame-top-right ()
+  (interactive)
+  (modify-frame-parameters
+   (selected-frame) '((user-size . t) (width . 0.33) (height . 0.70)
+                      (user-position . t) (top . 0.05) (left . 0.98)))
+  )
+
+(global-set-key (kbd "C-l 1") 'set-frame-m2air)
+(global-set-key (kbd "C-l 2") 'set-frame-work-external)
+(global-set-key (kbd "C-l 3") 'set-frame-home-external)
+(global-set-key (kbd "C-l 5") 'set-frame-95)
+(global-set-key (kbd "C-l 0") 'set-frame-top-right)
+
+
+
+
 (global-set-key (kbd "C-l w") 'delete-trailing-whitespace)
 
 (use-package recentf

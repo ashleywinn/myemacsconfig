@@ -72,6 +72,9 @@
 ;; truncate lines switch
 (global-set-key (kbd "C-l t") 'toggle-truncate-lines)
 
+;; visual line wrap mode
+(global-set-key (kbd "C-l y") 'visual-line-mode)
+
 ;; swap buffers in windows
 (global-set-key (kbd "C-l b") 'window-swap-states)
 

@@ -282,6 +282,8 @@
    :config (counsel-projectile-mode))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Verilog Mode
 ;; Turn off some verilog mode key bindings that I don't like
 (add-hook 'verilog-mode-hook
           #'(lambda ( )
@@ -290,6 +292,13 @@
 (add-hook 'verilog-mode-hook
           #'(lambda ( )
              (define-key verilog-mode-map (kbd "C-;") nil)))
+
+(add-hook 'verilog-mode-hook
+          #'(lambda ( )
+             (define-key verilog-mode-map (kbd "C-c C-r") nil)))
+
+
+
 
 (add-hook 'flyspell-mode-hook
           #'(lambda ( )
@@ -324,7 +333,6 @@
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 25)
            (doom-modeline-buffer-encoding nil)))
-
 
 
 (custom-set-variables

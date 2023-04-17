@@ -293,7 +293,8 @@
     (setq projectile-globally-ignored-directories
           (quote
            (".git" ".tox" "compile" "sim" "build" "target")))
-    (setq projectile-globally-ignored-file-suffixes '("~" ".log")))
+    (setq projectile-globally-ignored-file-suffixes '("~" ".log"))
+    (setq projectile-require-project-root nil))
   :config
   (projectile-mode)
   :custom ((projectile-completion-system 'ivy))

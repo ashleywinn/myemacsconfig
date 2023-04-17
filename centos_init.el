@@ -128,7 +128,8 @@
   (interactive)
   (set-frame-font (font-spec :size 15))
   (set-frame-size (selected-frame) 1800 1200 t)
-  (set-frame-position (selected-frame) 350 100)
+  (modify-frame-parameters
+     (selected-frame) '((user-position . t) (top . 0.5) (left . 0.5)))
   )
 
 (defun set-frame-home-external ()
@@ -138,9 +139,27 @@
   (set-frame-position (selected-frame) 225 75)
   )
 
+(defun set-frame-95 ()
+  (interactive)
+  (modify-frame-parameters
+   (selected-frame) '((user-size . t) (width . 0.95) (height . 0.95)))
+  (modify-frame-parameters
+   (selected-frame) '((user-position . t) (top . 0.5) (left . 0.5)))
+  )
+
+(defun set-frame-top-right ()
+  (interactive)
+  (modify-frame-parameters
+   (selected-frame) '((user-size . t) (width . 0.33) (height . 0.70)))
+  (modify-frame-parameters
+   (selected-frame) '((user-position . t) (top . 0.05) (left . 0.98)))
+  )
+
 (global-set-key (kbd "C-l 1") 'set-frame-m2air)
 (global-set-key (kbd "C-l 2") 'set-frame-work-external)
 (global-set-key (kbd "C-l 3") 'set-frame-home-external)
+(global-set-key (kbd "C-l 5") 'set-frame-95)
+(global-set-key (kbd "C-l 0") 'set-frame-top-right)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Dired

@@ -242,10 +242,26 @@ If FRAME is omitted or nil, use currently selected frame."
                       (user-position . t) (top . 0.05) (left . 0.98)))
   )
 
+(defun set-frame-left-pane ()
+  (interactive)
+  (modify-frame-parameters
+   (selected-frame) '((user-size . t) (width . 0.37) (height . 0.90)
+                      (user-position . t) (top . 0.4) (left . 0.25)))
+  )
+
+(defun set-frame-right-pane ()
+  (interactive)
+  (modify-frame-parameters
+   (selected-frame) '((user-size . t) (width . 0.37) (height . 0.90)
+                      (user-position . t) (top . 0.4) (left . 0.8)))
+  )
+
 (global-set-key (kbd "C-l 1") 'set-frame-m2air)
 (global-set-key (kbd "C-l 2") 'set-frame-work-external)
 (global-set-key (kbd "C-l 3") 'set-frame-home-external)
+(global-set-key (kbd "C-l 4") 'set-frame-left-pane)
 (global-set-key (kbd "C-l 5") 'set-frame-95)
+(global-set-key (kbd "C-l 6") 'set-frame-right-pane)
 (global-set-key (kbd "C-l 0") 'set-frame-top-right)
 
 

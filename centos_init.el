@@ -79,7 +79,13 @@
 (global-set-key (kbd "C-l b") 'window-swap-states)
 
 ;; Reload the file
-(global-set-key (kbd "C-l r") 'revert-buffer)
+(defun revert-buffer-confirm-if-change ()
+    "Revert buffer without confirmation."
+    (interactive)
+    (revert-buffer t (not (buffer-modified-p)) t)
+    (message "buffer reverted"))
+
+(global-set-key (kbd "C-l r") 'revert-buffer-confirm-if-change)
 
 ;; clean out the extra whitespace
 (global-set-key (kbd "C-l w") 'delete-trailing-whitespace)

@@ -2,6 +2,7 @@
 
 *~
 *.elc
+custom.el
 auto-save-list
 history
 bookmarks
@@ -13,3 +14,5 @@ elpa
 transient
 projectile-bookmarks.eld
 session*
+projects
+

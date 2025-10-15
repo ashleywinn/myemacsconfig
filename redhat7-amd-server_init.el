@@ -270,14 +270,28 @@ If FRAME is omitted or nil, use currently selected frame."
   (set-frame-position (selected-frame) 15 45)
   )
 
+(defun set-frame-home-external ()
+  (interactive)
+  (set-frame-font (font-spec :size 22))
+  (set-frame-size (selected-frame) 2800 1800 t)
+  (ash/frame-recenter (selected-frame))
+  )
+
 (defun set-frame-work-external ()
+  (interactive)
+  (set-frame-font (font-spec :size 13))
+  (set-frame-size (selected-frame) 1550 1000 t)
+  (ash/frame-recenter (selected-frame))
+  )
+
+(defun set-frame-work-laptop ()
   (interactive)
   (set-frame-font (font-spec :size 15))
   (set-frame-size (selected-frame) 1550 1000 t)
   (ash/frame-recenter (selected-frame))
   )
 
-(defun set-frame-home-external ()
+(defun old-set-frame-home-external ()
   (interactive)
   (set-frame-font (font-spec :size 15))
   (modify-frame-parameters
@@ -309,8 +323,8 @@ If FRAME is omitted or nil, use currently selected frame."
 (defun set-frame-right-pane ()
   (interactive)
   (modify-frame-parameters
-   (selected-frame) '((user-size . t) (width . 0.42) (height . 0.98)))
-  (set-frame-position (selected-frame) 1100 65)
+   (selected-frame) '((user-size . t) (width . 0.42) (height . 0.98)
+                      (user-position . t) (top . 0.3) (left . 0.95)))
   )
 
 (defun set-frame-laptop-right-pane ()
@@ -329,7 +343,7 @@ If FRAME is omitted or nil, use currently selected frame."
                       (user-position . t) (top . 0.3) (left . 0.02)))
   )
 
-(global-set-key (kbd "C-l 1") 'set-frame-m1air)
+(global-set-key (kbd "C-l 1") 'set-frame-home-external)
 (global-set-key (kbd "C-l 2") 'set-frame-work-external)
 (global-set-key (kbd "C-l 3") 'set-frame-laptop-left-pane)
 (global-set-key (kbd "C-l 4") 'set-frame-left-pane)

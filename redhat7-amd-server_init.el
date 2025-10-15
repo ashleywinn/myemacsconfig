@@ -31,6 +31,7 @@
 (add-to-list 'package-selected-packages 'diff-hl)
 (add-to-list 'package-selected-packages 'magit)
 (add-to-list 'package-selected-packages 'rainbow-delimiters)
+(add-to-list 'package-selected-packages 'editorconfig)
 
 
 ;; ;; Manually select "ef-themes" package
@@ -150,6 +151,9 @@
 (require 'awinn-perforce)
 
 (load-theme 'zenburn)
+
+(editorconfig-mode 1)
+
 
 ;; parenthesis, brackets, etc. have matching colors
 ;;(use-package rainbow-delimiters
@@ -338,6 +342,20 @@ If FRAME is omitted or nil, use currently selected frame."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Verilog Mode
 (add-to-list 'auto-mode-alist '("\\.[ds]?va?h?\\'" . verilog-mode))
+
+(defun ash/verilog-editorconfig-hook ()
+  (when (and (boundp 'editorconfig-properties-hash)
+             editorconfig-properties-hash)
+    (let ((indent-size (gethash 'indent-size editorconfig-properties-hash)))
+      (when indent-size
+        (setq verilog-indent-level             indent-size
+              verilog-indent-level-module      indent-size
+              verilog-indent-level-declaration indent-size
+              verilog-indent-level-behavioral  indent-size
+              verilog-indent-level-directive   indent-size)))))
+
+(add-hook 'verilog-mode-hook #'ash/verilog-editorconfig-hook)
+
 
 ;; Turn off some verilog mode key bindings that I don't like
 (add-hook 'verilog-mode-hook

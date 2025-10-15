@@ -65,6 +65,15 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
+;; Ruby-mode
+
+(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
+
+;; AMD file build tool file
+(add-to-list 'auto-mode-alist '("\\.dj\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.xdl\\'" . ruby-mode))
+
+
 
 ;; Avy
 (global-set-key (kbd "C-;") 'avy-goto-char-2)

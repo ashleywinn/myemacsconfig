@@ -26,7 +26,6 @@
 (add-to-list 'package-selected-packages 'elixir-ts-mode)
 (add-to-list 'package-selected-packages 'consult-lsp)
 (add-to-list 'package-selected-packages 'init-open-recentf)
-(add-to-list 'package-selected-packages 'zenburn-theme)
 (add-to-list 'package-selected-packages 'smartrep)
 (add-to-list 'package-selected-packages 'diff-hl)
 (add-to-list 'package-selected-packages 'magit)
@@ -150,7 +149,10 @@
 
 (require 'awinn-perforce)
 
-(load-theme 'zenburn)
+(use-package spacemacs-theme
+  :defer t
+  :init (load-theme 'spacemacs-light t))
+
 
 (editorconfig-mode 1)
 

@@ -2,6 +2,7 @@
 
 *~
 *.elc
+init.el
 custom.el
 auto-save-list
 history

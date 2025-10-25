@@ -386,5 +386,5 @@ If FRAME is omitted or nil, use currently selected frame."
           #'(lambda ( )
              (define-key verilog-mode-map (kbd "C-c C-r") nil)))
 
-
+(require 'awinn-orgmode)
 

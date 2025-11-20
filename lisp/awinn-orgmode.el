@@ -49,7 +49,7 @@
 (use-package org-roam
   :ensure t
   :init
-  (setq org-roam-directory (file-truename "~/notes"))
+  (setq org-roam-directory (file-truename "~/my-notes"))
   :custom
   (org-roam-completion-everywhere t)
   :bind (("C-c r f" . org-roam-node-find)

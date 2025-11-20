@@ -4,6 +4,8 @@
            (file-exists-p custom-file))
   (load custom-file nil :nomessage))
 
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+
 (load "~/opensource/crafted-emacs/modules/crafted-init-config")
 
 ;; Add package definitions for completion packages
@@ -59,7 +61,11 @@
                   (let ((current-prefix-arg 4))
                     (call-interactively #'set-mark-command))))
 
-(load-theme 'zenburn)
+
+(use-package spacemacs-theme
+  :defer t
+  :init (load-theme 'spacemacs-light t))
+;; (load-theme 'zenburn)
 
 ;; mac-specific key bindings
 (when (eq system-type 'darwin) ;; mac specific settings
@@ -203,19 +209,6 @@
             ("C->" . mc/mark-next-like-this)
             ("C-<" . mc/mark-previous-like-this)))
 
-;; Magit
-(use-package diff-hl
-     :config
-     (global-diff-hl-mode))
-
-(use-package magit
-     :bind (("C-c g" . magit-file-dispatch))
-     :config
-;; display status in the gutter
-     (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
-     (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Frame presets
@@ -325,5 +318,6 @@ If FRAME is omitted or nil, use currently selected frame."
           #'(lambda ( )
              (define-key verilog-mode-map (kbd "C-c C-r") nil)))
 
-
+(require 'awinn-orgmode)
+(require 'awinn-magit)
 

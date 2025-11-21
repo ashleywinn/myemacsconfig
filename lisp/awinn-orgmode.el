@@ -1,5 +1,18 @@
 ;;; awinn-orgmode.el --- my org-mode config          -*- lexical-binding: t; -*-
 
+
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+
+;; I use this key for changing buffers
+(add-hook 'org-mode-hook
+          #'(lambda ( )
+             (define-key org-mode-map (kbd "C-,") nil)))
+
+
+
 ;; /.../ for italic
 ;; *...* for bold
 ;; =...= for verbatim

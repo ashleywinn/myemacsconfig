@@ -6,11 +6,15 @@
 ;; You may delete these explanatory comments.
 ;; (package-initialize)
 
+
+;; This causes emacs to use a separate file for customizations.
+;; By default emacs adds customizations directly in init.el
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (and custom-file
            (file-exists-p custom-file))
   (load custom-file nil :nomessage))
 
+;; this is where I'm storing my lisp files
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
 (load "~/opensource/crafted-emacs/modules/crafted-init-config")
@@ -237,18 +241,6 @@
             ("C->" . mc/mark-next-like-this)
             ("C-<" . mc/mark-previous-like-this)))
 
-;; Magit
-(global-diff-hl-mode)
-
-
-(use-package magit
-     :bind (("C-c g" . magit-file-dispatch))
-     :config
-;; display status in the gutter
-     (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
-     (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Frame presets
@@ -387,4 +379,6 @@ If FRAME is omitted or nil, use currently selected frame."
              (define-key verilog-mode-map (kbd "C-c C-r") nil)))
 
 (require 'awinn-orgmode)
+
+(require 'awinn-magit)
 

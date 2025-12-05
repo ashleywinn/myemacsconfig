@@ -194,12 +194,15 @@
   :config
   (smartrep-define-key
       global-map "C-l" '(("C-i" . (scroll-down-command 5))
-                    ("C-k" . (scroll-up-command 5))
-                    ("C-u" . (scroll-down-command 10))
-                    ("C-j" . (scroll-up-command 10))
-                    ("C-l" . (recenter-top-bottom))
-                    ("C-v" . (scroll-up-command))
-                    ("M-v" . (scroll-down-command)))))
+                         ("C-k" . (scroll-up-command 5))
+                         ("C-u" . (scroll-down-command 10))
+                         ("C-j" . (scroll-up-command 10))
+                         ("C-l" . (recenter-top-bottom))
+                         ("C-v" . (scroll-up-command))
+                         ("M-v" . (scroll-down-command))
+                         ("C-=" . (enlarge-window-horizontally 10))
+                         ("C--" . (shrink-window-horizontally 10))
+                         )))
 
 
 ;; Rectangular edit
